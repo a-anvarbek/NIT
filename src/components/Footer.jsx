@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 const Wrapper = styled.div``;
 
-const Cars = () => {
+const Footer = () => {
   return (
     <>
-      <Wrapper>Cars page</Wrapper>
+      <Wrapper>Footer page</Wrapper>
     </>
   );
 };
 
-export default Cars;
+export default Footer;
