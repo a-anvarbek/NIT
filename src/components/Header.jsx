@@ -1,75 +1,129 @@
+import { Settings } from "@mui/icons-material";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
-  background-color: red;
-  padding: 40px 50px;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
 `;
 
-const Container = styled.div`
-  width: 100%;
-  background-color: green;
+const TopNav = styled.div`
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 50px;
+  font-weight: 500;
+`;
+
+const Logo = styled.h1`
+  font-size: 40px;
+  font-weight: 500;
+`;
+
+const NavActions = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 20px;
+  font-weight: 500;
 `;
 
-const Logo = styled.div`
-    background-color: yellow;
-    width: 33%;
+const NavText = styled.span`
+  font-size: 18px;
+  cursor: pointer;
+
+  &:hover {
+    color: #f0c000;
+  }
 `;
 
-const Menu = styled.div`
-    background-color: blue;
-    width: 33%;
-    display: flex;
-    justify-content: space-between;
+const Icon = styled.div`
+  cursor: pointer;
+  color: #fff;
 `;
 
-const Auth = styled.div`
-    background-color: antiquewhite;
-    width: 33%;
-    text-align: right;
+const Hero = styled.section`
+  width: 100%;
+  position: relative;
 `;
 
-const P = styled.p`
-  font-size: ${({ $fontSize }) => $fontSize || "16px"};
-  /* color: ${({ $color }) => $color || "#808080"}; */
-  font-weight: ${({ $fontWeight }) => $fontWeight || ""};
-  margin: ${({ $margin }) => $margin || ""};
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+  z-index: 1;
 `;
 
-const MenuBtn = styled.button`
-    /* background-color: transparent; */
-    border: none;
-    background-color: #fff;
-    padding: 10px 20px;
+const HeroNav = styled.ul`
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  z-index: 2;
+
+  li {
     font-size: 16px;
-    /* height: ; */
-`
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+    color: white;
+
+    &:hover {
+      color: #f0c000;
+    }
+  }
+`;
+
+const HeroRelative = styled.div`
+  width: 100%;
+  height: 50px;
+  background-color: #00000083;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+`;
 
 const Header = () => {
+  const navItems = [
+    "Top Cars",
+    "Our Services",
+    "Airport Transfers",
+    "Day Trips",
+    "Chauffeur Services",
+  ];
+
   return (
-    <>
-      <Wrapper>
-        <Container>
-          <Logo>
-            <P $fontSize="18px" $fontWeight="700">NIPPON IMPERIAL TOURS</P>
-          </Logo>
+    <Wrapper>
+      <TopNav>
+        <Logo>NIPPON IMPERIAL TOURS</Logo>
+        <NavActions>
+          <NavText>Search</NavText>
+          <NavText>Login</NavText>
+          <Icon>
+            <Settings />
+          </Icon>
+        </NavActions>
+      </TopNav>
 
-          <Menu>
-            <MenuBtn>Service</MenuBtn>
-            <MenuBtn>Cars</MenuBtn>
-            <MenuBtn>Pricing</MenuBtn>
-            <MenuBtn>About</MenuBtn>
-          </Menu>
-
-          <Auth>
-            <MenuBtn>Login</MenuBtn>
-          </Auth>
-        </Container>
-      </Wrapper>
-    </>
+      <Hero>
+        <Overlay />
+        <HeroRelative>
+          <HeroNav>
+            {navItems.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </HeroNav>
+        </HeroRelative>
+      </Hero>
+    </Wrapper>
   );
 };
 
