@@ -1,3 +1,4 @@
+import { FaArrowRightLong } from "react-icons/fa6";
 import styled from "styled-components";
 
 import bgImage from "../../images/BG.jpg";
@@ -10,19 +11,20 @@ const Wrapper = styled.div`
 
 const Hero = styled.section`
   position: relative;
-  height: 91vh;
+  height: 100vh;
   width: 100%;
   background-image: url(${bgImage});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: black;
+  background-blend-mode: multiply;
+  background-color: #666464;
 `;
 
 const Content = styled.div`
   position: absolute;
   bottom: 180px;
-  left: 60px;
+  left: 50px;
   z-index: 2;
   max-width: 600px;
   color: #fff;
@@ -37,8 +39,9 @@ const Content = styled.div`
 `;
 
 const Button = styled.button`
-  padding: 14px 30px;
-  font-size: 17px;
+  width: 300px;
+  height: 55px;
+  font-size: 20px;
   background-color: black;
   color: white;
   border: 2px solid white;
@@ -47,6 +50,10 @@ const Button = styled.button`
   font-weight: 500;
   transition: 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
 
   &:hover {
     background-color: white;
@@ -66,7 +73,7 @@ const Home = () => {
               in Comfort, Style, <br />
               and Class
             </h1>
-            <Button>About more →</Button>
+            <Button>About more <FaArrowRightLong /> </Button>
           </Content>
         </Hero>
       </Wrapper>
